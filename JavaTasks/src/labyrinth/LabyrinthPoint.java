@@ -1,11 +1,13 @@
 package labyrinth;
 
 public enum LabyrinthPoint {
-    FREECELL("[ ]"),
-    Opportunity("[*]"),
+    FREE_WAY(" "),
+    PASSAGE("[*]"),
     WALL("*"),
-    START("U+2386"),
-    END("U+1F6AA")
+    ENTRY("\u2386"),
+    EXIT("\uD83D\uDEAA"),
+    THESEUS("\uD83D\uDEB6"),
+    MINOTAUR("\uD800\uDDEB")
     ;
 
     private String item;
