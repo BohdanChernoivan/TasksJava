@@ -1,7 +1,7 @@
 package labyrinth.logic;
 
-import labyrinth.details.CheckPassingLabyrinth;
-import labyrinth.details.LabyrinthPoint;
+import labyrinth.elements.CheckPassingLabyrinth;
+import labyrinth.elements.LabyrinthPoint;
 import labyrinth.base.LabyrinthRealization;
 
 import java.util.Random;
