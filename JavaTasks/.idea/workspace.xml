@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1eb4e9c2-2398-46b1-a767-1a3ec37bc7b2" name="Default Changelist" comment="almost finished">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Empty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/labyrinth/details/CheckPassingLabyrinth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaTasks/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaTasks/labyrinth/LabyrinthPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaTasks/labyrinth/LabyrinthPoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaTasks/labyrinth/LabyrinthRealization.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaTasks/labyrinth/TheLabyrinth.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labyrinth/CheckPassingLabyrinth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labyrinth/LabyrinthPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labyrinth/details/LabyrinthPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labyrinth/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labyrinth/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/labyrinth/TheLabyrinthRealization.java" beforeDir="false" />
+    <list default="true" id="1eb4e9c2-2398-46b1-a767-1a3ec37bc7b2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/labyrinth/elements/CheckPassingLabyrinth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/labyrinth/elements/LabyrinthPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/labyrinth/logic/TheLabyrinthRealization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/labyrinth/logic/TheLabyrinthRealization.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +18,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/labyrinth/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -39,7 +28,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/labyrinth/details/LabyrinthPoint.java">
+        <entry file="file://$PROJECT_DIR$/src/labyrinth/elements/LabyrinthPoint.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
@@ -65,17 +54,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/labyrinth/logic/TheLabyrinthRealization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1615">
+            <state relative-caret-position="68">
               <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/labyrinth/details/CheckPassingLabyrinth.java">
+        <entry file="file://$PROJECT_DIR$/src/labyrinth/elements/CheckPassingLabyrinth.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
@@ -159,13 +148,6 @@
               <item name="JavaTasks" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="labyrinth" type="462c0819:PsiDirectoryNode" />
-              <item name="details" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaTasks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaTasks" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="labyrinth" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -233,12 +215,32 @@
       <option name="project" value="LOCAL" />
       <updated>1562956869653</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add methods">
+      <created>1562957643673</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1562957643673</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add gitignore">
+      <created>1562957683594</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1562957683594</updated>
+    </task>
+    <task id="LOCAL-00005" summary="finished">
+      <created>1562957722526</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1562957722526</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31111112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -250,7 +252,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920633" weight="0.32565284" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920633" visible="true" weight="0.39324117" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4546851" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -258,7 +260,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50079364" side_tool="true" visible="true" weight="0.32872504" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50079364" side_tool="true" weight="0.32872504" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -275,7 +277,9 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="almost finished" />
     <MESSAGE value="add methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="add methods" />
+    <MESSAGE value="add gitignore" />
+    <MESSAGE value="finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/lang/Integer.java">
@@ -293,13 +297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/labyrinth/details/LabyrinthPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/labyrinth/base/LabyrinthRealization.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -307,10 +304,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/labyrinth/details/CheckPassingLabyrinth.java">
+    <entry file="file://$PROJECT_DIR$/src/labyrinth/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="289">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -321,17 +318,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/labyrinth/logic/TheLabyrinthRealization.java">
+    <entry file="file://$PROJECT_DIR$/src/labyrinth/elements/CheckPassingLabyrinth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1615">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/labyrinth/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/labyrinth/elements/LabyrinthPoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/labyrinth/logic/TheLabyrinthRealization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
