@@ -1,10 +1,12 @@
-package labyrinth;
+package labyrinth.logic;
 
+import labyrinth.details.CheckPassingLabyrinth;
+import labyrinth.details.LabyrinthPoint;
 import labyrinth.base.LabyrinthRealization;
 
 import java.util.Random;
 
-public class TheLabyrinthRealization extends LabyrinthRealization implements CheckPassingLabyrinth<Integer, Integer> {
+public class TheLabyrinthRealization extends LabyrinthRealization implements CheckPassingLabyrinth<Integer, Integer, LabyrinthPoint> {
 
     private Random random = new Random();
 
@@ -45,55 +47,48 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
         }
     }
 
+
+    /**
+     * does not always work correctly
+     */
     @Override
     public boolean passingTheLabyrinth() {
 
         foundEntry();
-// TODO: RIGHT, LEFT
+
         row:
         for (int i = num1; i < array.length; i++) {
             column:
             for (int j = num2; j < array[i].length; j++) {
 
-                System.out.println(array[i][j]);
-
-                System.out.println("NUM111 = " + i + " " + j);
-                if (checkToTop(i,j)) {
-                    System.out.println("NUM333 = " + (i -1) + " " + j);
+                if (checkToLeft(i,j, LabyrinthPoint.FREE_WAY)) {
+                    System.out.println("LEFT");
+                    array[i][j - 1] = LabyrinthPoint.THESEUS.getItem();
+                    j -= 2;
+                    continue column;
+                } else if (checkToTop(i, j, LabyrinthPoint.FREE_WAY)) {
+                    System.out.println("TOP");
                     array[i - 1][j] = LabyrinthPoint.THESEUS.getItem();
                     i -= 2;
                     continue row;
+                } else if (checkToRight(i, j, LabyrinthPoint.FREE_WAY)) {
+                    System.out.println("RIGHT");
+                    array[i][j + 1] = LabyrinthPoint.THESEUS.getItem();
+                    continue column;
+                }
+                if (checkToBottom(i, j, LabyrinthPoint.FREE_WAY)) {
+                    System.out.println("BOTTOM");
+                    array[i + 1][j] = LabyrinthPoint.THESEUS.getItem();
+                    j--;
+                    continue row;
                 } else {
+                    System.out.println("EXIT");
+                    System.out.println(array[i][j]);
                     return false;
                 }
-
-//                if(checkToBottom(i,j)) {
-//                    System.out.println("BOTTOM");
-//                    array[i + 1][j] = LabyrinthPoint.THESEUS.getItem();
-//                    j -= 1;
-//                    continue column;
-//                } else if (checkToRight(i,j)) {
-//                    System.out.println("RIGHT");
-//                    array[i][j + 1] = LabyrinthPoint.THESEUS.getItem();
-//                    continue column;
-//                } else if (checkToTop(i,j)) {
-//                    System.out.println("TOP");
-//                    array[i - 1][j] = LabyrinthPoint.THESEUS.getItem();
-//                i -= 2;
-//                    continue row;
-//                } else if (checkToLeft(i,j)) {
-//                    System.out.println("LEFT");
-//                    array[i][j - 1] = LabyrinthPoint.THESEUS.getItem();
-//                    j -= 2;
-//                    continue column;
-//                } else {
-//                    System.out.println("EXIT");
-//                    System.out.println(array[i][j]);
-//                    return false;
-//                }
             }
         }
-        System.out.println("NONONO");
+
         return false;
     }
 
@@ -107,10 +102,10 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
 
 
     @Override
-    public boolean checkToLeft(Integer row, Integer column) {
+    public boolean checkToLeft(Integer row, Integer column, LabyrinthPoint labyrinthPoint) {
         column -= 1;
         if (column - 1 >= 0) {
-            if (array[row][column].equals(LabyrinthPoint.FREE_WAY.getItem())) {
+            if (array[row][column].equals(labyrinthPoint.getItem())) {
                 return true;
             } else if (array[row][column].equals(LabyrinthPoint.MINOTAUR.getItem())) {
                 System.out.println("You LOSE");
@@ -124,10 +119,10 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
     }
 
     @Override
-    public boolean checkToRight(Integer row, Integer column) {
+    public boolean checkToRight(Integer row, Integer column, LabyrinthPoint labyrinthPoint) {
         column += 1;
         if (column <= array.length - 1) {
-            if (array[row][column].equals(LabyrinthPoint.FREE_WAY.getItem())) {
+            if (array[row][column].equals(labyrinthPoint.getItem())) {
                 return true;
             } else if (array[row][column].equals(LabyrinthPoint.MINOTAUR.getItem())) {
                 System.out.println("You LOSE");
@@ -141,10 +136,10 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
     }
 
     @Override
-    public boolean checkToTop(Integer row, Integer column) {
+    public boolean checkToTop(Integer row, Integer column, LabyrinthPoint labyrinthPoint) {
         row -= 1;
         if (row >= 0) {
-            if (array[row][column].equals(LabyrinthPoint.FREE_WAY.getItem())) {
+            if (array[row][column].equals(labyrinthPoint.getItem())) {
                 return true;
             } else if (array[row][column].equals(LabyrinthPoint.MINOTAUR.getItem())) {
                 System.out.println("You LOSE");
@@ -158,10 +153,10 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
     }
 
     @Override
-    public boolean checkToBottom(Integer row, Integer column) {
+    public boolean checkToBottom(Integer row, Integer column, LabyrinthPoint labyrinthPoint) {
         row += 1;
         if (row <= array.length - 1) {
-            if (array[row][column].equals(LabyrinthPoint.FREE_WAY.getItem())) {
+            if (array[row][column].equals(labyrinthPoint.getItem())) {
                 return true;
             } else if (array[row][column].equals(LabyrinthPoint.MINOTAUR.getItem())) {
                 System.out.println("You LOSE");
