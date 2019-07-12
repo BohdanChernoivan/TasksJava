@@ -1,8 +1,8 @@
-package labyrinth;
+package labyrinth.details;
 
 public enum LabyrinthPoint {
     FREE_WAY(" "),
-    PASSAGE("[*]"),
+//    PASSAGE("[*]"),
     WALL("*"),
     ENTRY("\u2386"),
     EXIT("\uD83D\uDEAA"),
