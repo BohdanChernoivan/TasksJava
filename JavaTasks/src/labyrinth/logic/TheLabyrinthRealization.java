@@ -24,9 +24,9 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                    array[i][j] = random.nextBoolean() ?
-                            LabyrinthPoint.FREE_WAY.getItem() :
-                            LabyrinthPoint.WALL.getItem();
+                array[i][j] = random.nextBoolean() ?
+                        LabyrinthPoint.FREE_WAY.getItem() :
+                        LabyrinthPoint.WALL.getItem();
             }
         }
 
@@ -46,7 +46,6 @@ public class TheLabyrinthRealization extends LabyrinthRealization implements Che
             System.out.println();
         }
     }
-
 
     /**
      * does not always work correctly
