@@ -50,7 +50,7 @@ public class Tamagochi {
         return pointEat > 0 && pointSleep > 0 && pointCrap > 0 && pointPlay > 0;
     }
 
-    private void choice() {
+    private synchronized void choice() {
 
         String include = scanner.nextLine();
 
@@ -73,8 +73,8 @@ public class Tamagochi {
     public void start() {
         defectEat.start();
         defectSleep.start();
-//        defectCrap.start();
-//        defectPlay.start();
+        defectCrap.start();
+        defectPlay.start();
     }
 
     public class DefectEat extends Thread {
