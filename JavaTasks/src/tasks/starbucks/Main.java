@@ -1,22 +1,24 @@
 package tasks.starbucks;
 
 import tasks.starbucks.company.Starbucks;
-import tasks.starbucks.company.coffee.CoffeeType;
 import tasks.starbucks.customers.Customer;
+import tasks.starbucks.customers.RandomizeCustomer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Customer customer = new Customer();
 
-        customer.setMoney(19);
-        customer.setCoffeeWant(CoffeeType.AMERICANO);
-        customer.setName("Вован");
+        List<Customer> customerList = new ArrayList<>(new RandomizeCustomer().manyCustomers(100));
 
         Starbucks starbucks = new Starbucks();
-        starbucks.sellCoffee(customer);
 
-        System.out.println(customer.getMoney());
-        System.out.println(CoffeeType.AMERICANO.toString());
+        for (Customer customer : customerList) {
+            starbucks.sellCoffee(customer);
+        }
+
+        starbucks.income();
 
     }
 }

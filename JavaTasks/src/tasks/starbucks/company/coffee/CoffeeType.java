@@ -15,5 +15,4 @@ public enum CoffeeType {
     public int getCost() {
         return cost;
     }
-
 }

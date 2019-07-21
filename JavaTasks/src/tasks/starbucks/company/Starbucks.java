@@ -9,30 +9,42 @@ import tasks.starbucks.customers.Customer;
 
 public class Starbucks {
 
+    private static final int PRODUCTS_IN_STORAGE = 90;
+    private static final double CHANCE = 0.2;
+
+    private static int accountant = 0;
+
     AbstractCoffeeMaker barista = new Barista();
     AbstractCoffeeMaker machine = new CoffeeMachine();
-    IngredientStorage storage = new IngredientStorage();
+    IngredientStorage storage = new IngredientStorage(PRODUCTS_IN_STORAGE, PRODUCTS_IN_STORAGE, PRODUCTS_IN_STORAGE, PRODUCTS_IN_STORAGE, PRODUCTS_IN_STORAGE);
 
     public void sellCoffee(Customer customer) {
 
-        if (makeCoffeeType(customer.getCoffeeWant())) {
+        if (makeCoffeeType(customer.getCoffeeWant(), customer.isWantSugar())) {
         if (customer.getMoney() >= customer.getCoffeeWant().getCost()) {
-            customer.setMoney(customer.getMoney() - customer.getCoffeeWant().getCost());
-            System.out.println("Тип кофе = " + customer.getCoffeeWant() + ", продано покупателю под именем " + customer.getName());
+            customer.wantPayment(customer.getCoffeeWant().getCost());
+            System.out.println("Type coffee = " + customer.getCoffeeWant() + ", sold out " + customer.getName());
+            accountant += customer.getCoffeeWant().getCost();
         } else {
-            System.out.println("У покупателя под именем " + customer.getName() + " не хватило денег на " + customer.getCoffeeWant());
+            System.out.println("The " + customer.getName() + " did not have enough " + customer.getCoffeeWant());
         }
         } else {
-            System.out.println("Нету ингридиентов");
+            System.out.println("Not enough ingredients");
         }
     }
 
-    private boolean makeCoffeeType(CoffeeType coffeeType) {
+    public void income() {
+        System.out.println("Income = " + accountant);
+    }
 
-        if(Math.random() >= 0.5) {
-            return machine.makeCoffee(storage, coffeeType);
+    private boolean makeCoffeeType(CoffeeType coffeeType, boolean sugar) {
+
+        if(Math.random() >= CHANCE) {
+            System.out.println(machine.getName());
+            return machine.makeCoffee(storage, coffeeType, sugar);
         } else {
-            return barista.makeCoffee(storage, coffeeType);
+            System.out.println(barista.getName());
+            return barista.makeCoffee(storage, coffeeType, sugar);
         }
     }
 }

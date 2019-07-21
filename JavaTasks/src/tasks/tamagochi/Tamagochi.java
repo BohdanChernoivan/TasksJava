@@ -7,6 +7,11 @@ public class Tamagochi {
     private static final int MAX = 100;
     private static final int LOW = 30;
 
+    private int pointEat = MAX;
+    private int pointSleep = MAX;
+    private int pointCrap = MAX;
+    private int pointPlay = MAX;
+
     Thread defectEat;
     Thread defectSleep;
     Thread defectCrap;
@@ -23,11 +28,6 @@ public class Tamagochi {
         defectPlay = new DefectPlay();
 
     }
-
-    private int pointEat = MAX;
-    private int pointSleep = MAX;
-    private int pointCrap = MAX;
-    private int pointPlay = MAX;
 
 
     void eat() {

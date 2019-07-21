@@ -1,6 +1,6 @@
 package tasks.starbucks.company.coffee.coffee_drinks;
 
-public class BaseCoffee {
+public abstract class BaseCoffee {
 
     private int water;
     private int coffeeBeans;
@@ -17,6 +17,7 @@ public class BaseCoffee {
     }
 
     public int getWater() {
+
         return water;
     }
 

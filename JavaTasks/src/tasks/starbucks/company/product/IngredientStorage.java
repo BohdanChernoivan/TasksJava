@@ -8,9 +8,6 @@ public class IngredientStorage {
     private int cup;
     private int sugar;
 
-    public IngredientStorage() {
-    }
-
     public IngredientStorage(int water, int coffeeBeans, int milk, int cup, int sugar) {
         this.water = water;
         this.coffeeBeans = coffeeBeans;

@@ -2,7 +2,7 @@ package tasks.starbucks.customers;
 
 public interface Payment {
 
-    void card();
+    void card(int needMoney);
 
-    void cash();
+    void cash(int needMoney);
 }

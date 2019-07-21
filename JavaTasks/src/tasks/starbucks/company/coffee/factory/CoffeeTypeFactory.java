@@ -21,7 +21,6 @@ public class CoffeeTypeFactory {
             default:
                 return null;
         }
-
     }
 
     public Americano createAmericano(boolean sugar) {
