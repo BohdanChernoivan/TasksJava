@@ -11,16 +11,15 @@ public class CoffeeTypeFactory {
 
     public BaseCoffee choiceCoffeeType(CoffeeType coffeeType, boolean sugar) {
 
-        switch (coffeeType) {
-            case AMERICANO:
-                return createAmericano(sugar);
-            case ESPRESSO:
-                return createEspresso(sugar);
-            case LATTE:
-                return createLatte(sugar);
-            default:
-                return null;
-        }
+
+        if (coffeeType.equals(CoffeeType.AMERICANO)) {
+            return createAmericano(sugar);
+        } else if (coffeeType.equals(CoffeeType.ESPRESSO)) {
+            return createEspresso(sugar);
+        } else if (coffeeType.equals(CoffeeType.LATTE)) {
+            return createLatte(sugar);
+        } else return null;
+
     }
 
     public Americano createAmericano(boolean sugar) {
