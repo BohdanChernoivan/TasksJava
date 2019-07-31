@@ -1,6 +1,7 @@
 package tasks.starbucks.company;
 
 import tasks.starbucks.company.coffee.CoffeeType;
+import tasks.starbucks.company.coffee.Cost;
 import tasks.starbucks.company.coffee_maker.AbstractCoffeeMaker;
 import tasks.starbucks.company.coffee_maker.Barista;
 import tasks.starbucks.company.coffee_maker.CoffeeMachine;
@@ -21,10 +22,10 @@ public class Starbucks {
     public void sellCoffee(Customer customer) {
 
         if (makeCoffeeType(customer.getCoffeeWant(), customer.isWantSugar())) {
-        if (customer.getMoney() >= customer.getCoffeeWant().getCost()) {
-            customer.wantPayment(customer.getCoffeeWant().getCost());
+        if (customer.getMoney() >= new Cost(customer.getCoffeeWant()).returnCost()) {
+            customer.wantPayment(new Cost(customer.getCoffeeWant()).returnCost());
             System.out.println("Type coffee = " + customer.getCoffeeWant() + ", sold out " + customer.getName());
-            accountant += customer.getCoffeeWant().getCost();
+            accountant += new Cost(customer.getCoffeeWant()).returnCost();
         } else {
             System.out.println("The " + customer.getName() + " did not have enough " + customer.getCoffeeWant());
         }
