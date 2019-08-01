@@ -20,17 +20,30 @@ public class CoffeeMachine extends AbstractCoffeeMaker {
     }
 
     @Override
-    public boolean makeCoffee(IngredientStorage storage, CoffeeType coffeeType, boolean sugar) {
+    public boolean isMakeCoffee(IngredientStorage storage, CoffeeType coffeeType, boolean sugar) {
 
         BaseCoffee baseCoffee = new CoffeeTypeFactory().choiceCoffeeType(coffeeType, sugar);
 
-        int needSugar;
+        return interactionOfStorageWithTheBaseCoffee(storage, baseCoffee, getIntSugar(sugar));
+    }
+
+    @Override
+    public void makeCoffee(IngredientStorage storage, CoffeeType coffeeType, boolean sugar) {
+
+        BaseCoffee baseCoffee = new CoffeeTypeFactory().choiceCoffeeType(coffeeType, sugar);
+
+        storage.setCup(storage.getCup() - baseCoffee.getCup());
+        storage.setWater(storage.getMilk() - baseCoffee.getMilk());
+        storage.setCoffeeBeans(storage.getCoffeeBeans());
+        storage.setMilk(storage.getMilk() - baseCoffee.getMilk());
+        storage.setSugar(storage.getSugar() - getIntSugar(sugar));
+    }
+
+    private int getIntSugar(boolean sugar) {
 
         if (sugar) {
-            needSugar = 1;
+            return 1;
         } else
-            needSugar = 0;
-
-        return interactionOfStorageWithTheBaseCoffee(storage, baseCoffee, needSugar);
+            return 0;
     }
 }

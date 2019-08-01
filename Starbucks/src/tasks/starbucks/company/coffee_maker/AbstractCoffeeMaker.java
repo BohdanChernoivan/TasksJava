@@ -16,7 +16,10 @@ public abstract class AbstractCoffeeMaker {
         this.name = name;
     }
 
-    public abstract boolean makeCoffee(IngredientStorage storage, CoffeeType coffeeType, boolean sugar);
+    public abstract boolean isMakeCoffee(IngredientStorage storage, CoffeeType coffeeType, boolean sugar);
+
+    public abstract void makeCoffee(IngredientStorage storage, CoffeeType coffeeType, boolean sugar);
+
 
     public boolean interactionOfStorageWithTheBaseCoffee(IngredientStorage storage, BaseCoffee baseCoffee, int needSugar) {
 
@@ -25,12 +28,6 @@ public abstract class AbstractCoffeeMaker {
                 storage.getCoffeeBeans() >= baseCoffee.getCoffeeBeans() &&
                 storage.getMilk() >= baseCoffee.getCoffeeBeans() &&
                 storage.getSugar() >= needSugar) {
-
-            storage.setCup(storage.getCup() - baseCoffee.getCup());
-            storage.setWater(storage.getMilk() - baseCoffee.getMilk());
-            storage.setCoffeeBeans(storage.getCoffeeBeans());
-            storage.setMilk(storage.getMilk() - baseCoffee.getMilk());
-            storage.setSugar(storage.getSugar() - needSugar);
 
             return true;
         }

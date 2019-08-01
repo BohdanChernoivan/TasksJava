@@ -10,7 +10,7 @@ import tasks.starbucks.customers.Customer;
 
 public class Starbucks {
 
-    private static final int PRODUCTS_IN_STORAGE = 90;
+    private static final int PRODUCTS_IN_STORAGE = 70;
     private static final double CHANCE = 0.2;
 
     private static int accountant = 0;
@@ -21,8 +21,9 @@ public class Starbucks {
 
     public void sellCoffee(Customer customer) {
 
-        if (makeCoffeeType(customer.getCoffeeWant(), customer.isWantSugar())) {
+        if (isMakeCoffeeType(customer.getCoffeeWant(), customer.isWantSugar())) {
         if (customer.getMoney() >= new Cost(customer.getCoffeeWant()).returnCost()) {
+            makeCoffeeType(customer.getCoffeeWant(), customer.isWantSugar());
             customer.wantPayment(new Cost(customer.getCoffeeWant()).returnCost());
             System.out.println("Type coffee = " + customer.getCoffeeWant() + ", sold out " + customer.getName());
             accountant += new Cost(customer.getCoffeeWant()).returnCost();
@@ -34,18 +35,22 @@ public class Starbucks {
         }
     }
 
-    public void income() {
-        System.out.println("Income = " + accountant);
+    public int income() {
+        return accountant;
     }
 
-    private boolean makeCoffeeType(CoffeeType coffeeType, boolean sugar) {
+    private boolean isMakeCoffeeType(CoffeeType coffeeType, boolean sugar) {
+            return barista.isMakeCoffee(storage, coffeeType, sugar);
+    }
+
+    private void makeCoffeeType(CoffeeType coffeeType, boolean sugar) {
 
         if(Math.random() >= CHANCE) {
             System.out.println(machine.getName());
-            return machine.makeCoffee(storage, coffeeType, sugar);
+            machine.makeCoffee(storage, coffeeType, sugar);
         } else {
             System.out.println(barista.getName());
-            return barista.makeCoffee(storage, coffeeType, sugar);
+            barista.makeCoffee(storage, coffeeType, sugar);
         }
     }
 }

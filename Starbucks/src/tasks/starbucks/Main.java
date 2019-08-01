@@ -18,7 +18,6 @@ public class Main {
             starbucks.sellCoffee(customer);
         }
 
-        starbucks.income();
-
+        System.out.println("Income = " + starbucks.income());
     }
 }
